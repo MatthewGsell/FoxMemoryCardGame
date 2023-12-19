@@ -1,19 +1,97 @@
 #root {
   width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;  
 }
 body {
   background-color: #37423d;
+
 }
 
 #cardscontainer {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  width: 90%;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  column-gap: 20px;
+  row-gap: 20px;
 }
-#cardscontainer > div {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+.imagecontainer {
+  margin: 0 auto;
+}
+
+
+#titleandscore {
+  margin-top: 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+#titleandscore > p, #titleandscore > h1{
+  margin-left: 5%;
+  margin-bottom: 0%;
+  color: #ca5310;
+}
+#titleandscore > p {
+  font-size: x-large;
+}
+#gameover {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  
+}
+#gameover > h1 {
+  color: #ca5310;
+}
+
+@media only screen and (max-width: 795px)  {
+  #titleandscore {
+    flex-direction: column;
+  }
+}
+#gamecontainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+#gameovercontainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#directions {
+  position: relative;
+  margin-bottom: 5%;
+  margin-top: 2%;
+  color: #ca5310;
+  text-align: center;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.preloader {
+  position :absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fbba72;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#preloader .hidden {
+  display: none;
+}
+#gamewrapper {
+  width: 100%;
 }

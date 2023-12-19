@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import "./compstyles/Card.css";
 
-function Card({ selectedCard, setSelectedCard, gameover }) {
+function Card({ selectthiscard, increasescore, gameover }) {
   const [cardImage, setCardImage] = useState(null);
+  const [selected, setSelected] = useState(false)
 
-  function selectthiscard(event) {
-    if (selectedCard != cardImage) {
-      setSelectedCard(cardImage);
-    } else {
-      gameover();
+  function selectthiscard(e) {
+
+    if (!selected) {
+    increasescore(e)
+    setSelected(true)} else {
+      gameover()
     }
-  }
+
+    }
 
   useEffect(() => {
     let image = null;
@@ -18,14 +21,13 @@ function Card({ selectedCard, setSelectedCard, gameover }) {
       image = await fetch("https://randomfox.ca/floof/").then((res) => {
         return res.json();
       });
-      console.log(image["image"]);
       setCardImage(image["image"]);
     }
     getImage();
   }, []);
 
   return (
-    <div className="imagecontainer" onClick={selectedCard}>
+    <div className="imagecontainer" onClick={selectthiscard}>
       <img src={cardImage}></img>
     </div>
   );
