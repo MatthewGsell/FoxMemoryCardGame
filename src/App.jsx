@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Card from "./components/card";
+import Card from "./components/Card.jsx";
 import "./App.css";
 import { PulseLoader } from "react-spinners";
 
