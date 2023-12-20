@@ -19,8 +19,15 @@ function Card({ selectthiscard, increasescore, gameover }) {
     let image = null;
     async function getImage() {
       image = await fetch("https://randomfox.ca/floof/").then((res) => {
-        return res.json();
+        image = res.json();
+        return image
       });
+      const imglist = document.querySelectorAll('img')
+        imglist.forEach((img) => {
+          if (image["image"] === img.src) {
+            getImage()
+          }
+        })
       setCardImage(image["image"]);
     }
     getImage();
